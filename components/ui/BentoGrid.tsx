@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { Globe } from "./Globe";
@@ -47,10 +46,10 @@ export const BentoGridItem = ({
   header?: React.ReactNode;
   icon?: React.ReactNode;
   id?: number;
-  img?: string | StaticImport;
+  img?: string | undefined;
   imgClassName?: string;
   titleClassName?: string;
-  spareImg?: string | StaticImport;
+  spareImg?: string | undefined;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -77,7 +76,7 @@ export const BentoGridItem = ({
           {img && (
             <img
               src={img}
-              alt={img as string | undefined}
+              alt={img}
               className={cn(imgClassName, "object-cover object-center")}
             />
           )}
@@ -90,7 +89,7 @@ export const BentoGridItem = ({
           {spareImg && (
             <img
               src={spareImg}
-              alt={spareImg as string | undefined}
+              alt={spareImg}
               className="object-cover object-center w-full h-full"
             />
           )}
