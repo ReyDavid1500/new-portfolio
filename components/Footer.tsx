@@ -14,11 +14,7 @@ const Footer = () => {
             and contact me for any further questions.
           </span>
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center mx-5">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
-        </p>
-        <a href="mailto:contact@jsmastery.pro">
+        <a href="/frontendCVen.pdf" download>
           <MagicButton
             title="Download my CV"
             icon={<FaLocationArrow />}
@@ -36,12 +32,14 @@ const Footer = () => {
               key={profile.id}
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
-              <img
-                src={profile.img}
-                alt={profile.id.toString()}
-                width={20}
-                height={20}
-              />
+              <a href={profile.href} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={profile.img}
+                  alt={profile.id.toString()}
+                  width={20}
+                  height={20}
+                />
+              </a>
             </div>
           ))}
         </div>

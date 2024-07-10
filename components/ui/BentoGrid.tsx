@@ -96,7 +96,7 @@ export const BentoGridItem = ({
         </div>
         {id === 6 && (
           <BackgroundGradientAnimation>
-            {/* <div className="absolute z-50 flex items-center justify-center text-white font-bold" /> */}
+            <div className="absolute z-50 flex items-center justify-center text-white font-bold" />
           </BackgroundGradientAnimation>
         )}
         <div
@@ -108,12 +108,29 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight text-[#c1c2d3] text-sm md:text-xs lg:text-base z-10">
             {description}
           </div>
-          <div className="font-sans font-bold lg:text-3xl max-w-96 z-10">
+          <div
+            className={`${
+              id === 1
+                ? "text-white font-bold lg:text-3xl text-xl z-10"
+                : "text-white font-sans font-bold lg:text-3xl max-w-96 z-10"
+            } `}
+          >
             {title}
           </div>
           {id === 2 && <GlobeDemo />}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute right-2 lg:-right-2">
+            <div className="flex gap-1 lg:gap-5 w-fit absolute lg:right-14">
+              <div className="flex flex-col gap3 lg:gap-8">
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+                {["HTML", "CSS", "JavaScript"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
               <div className="flex flex-col gap3 lg:gap-8">
                 {["React.js", "Next.js", "TypeScript"].map((item) => (
                   <span
@@ -127,7 +144,7 @@ export const BentoGridItem = ({
               </div>
               <div className="flex flex-col gap3 lg:gap-8">
                 <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
-                {["Express.js", "Nest.js", "MongoDB"].map((item) => (
+                {["TailwindCSS", "React Native", "MySQL"].map((item) => (
                   <span
                     key={item}
                     className="py-2 lg:py4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
@@ -136,22 +153,21 @@ export const BentoGridItem = ({
                   </span>
                 ))}
               </div>
+              <div className="flex flex-col gap3 lg:gap-8">
+                {["Express.js", "Nest.js", "MongoDB"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+              </div>
             </div>
           )}
           {id === 6 && (
             <div className="mt-5 relative">
-              {/* <div className={`absolute -bottom-5 right-0`}>
-                <Lottie
-                  options={{
-                    loop: copied,
-                    autoplay: copied,
-                    animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
-                  }}
-                />
-              </div> */}
               <MagicButton
                 title={copied ? "Email copied" : "Copy my email"}
                 icon={<IoCopyOutline />}
